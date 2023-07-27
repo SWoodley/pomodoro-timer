@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { types, ButtonToggle } from './ToggleGroup.styles.js';
+import { TimerDetailsContext } from '../../contexts/TimerDetails.context.jsx';
 
 export const ToggleGroup = () => {
     const [active, setActive] = useState(types[0]);
+    const { setIsBreak } = useContext(TimerDetailsContext);
   
-    const handleClick = () => {
-      // if (active===type && type==="Study") {
-      //   // //use Redux here
-      //   // redux.secondsProp = redux.studyTime;
-      // }
-      // else if (active===type && type==="Break") {
-      //   // //use Redux here
-      //   // redux.secondsProp = redux.breakTime;        
-      // }
+    const handleClick = ( type ) => {
+      if (active===type && type==="Study") {
+        setIsBreak(false);
+      }
+      else {
+        setIsBreak(true);       
+      }
     }
+    
     return <div>
       {types.map(type => (
         <ButtonToggle 
@@ -21,7 +22,7 @@ export const ToggleGroup = () => {
           active={active===type} 
           onClick={() => {
             setActive(type);
-            handleClick();
+            handleClick(type);
           }}
         >
           {type}
