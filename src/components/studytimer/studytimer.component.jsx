@@ -1,6 +1,7 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState, useEffect, useContext } from 'react';
 
 import { Button } from '../Button/Button.styles.js';
+import { TimerDetailsContext } from '../../contexts/TimerDetails.context.jsx';
 import './studytimer.style.scss';
 
 
@@ -34,7 +35,11 @@ export const StudyTimer = props => {
             console.log('clearing interval')
             clearInterval(interval);
         };
-    }, [totalSeconds, isPaused]) //dependency handles stale closure
+    }, [totalSeconds, isPaused]); //dependency handles stale closure
+
+    useEffect(() => {
+        setTotalSeconds(secondsProp);
+    }, [secondsProp]); //re-render on prop change
 
     return (
         <div className='Timer'>

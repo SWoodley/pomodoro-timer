@@ -4,17 +4,12 @@ import { TimerDetailsContext } from '../../contexts/TimerDetails.context.jsx';
 
 export const ToggleGroup = () => {
     const [active, setActive] = useState(types[0]);
-    const { setIsBreak } = useContext(TimerDetailsContext);
+    const { isBreak, setIsBreak } = useContext(TimerDetailsContext);
   
-    const handleClick = ( type ) => {
-      if (active===type && type==="Study") {
-        setIsBreak(false);
-      }
-      else {
-        setIsBreak(true);       
-      }
+    const handleClick = () => {
+      setIsBreak(!isBreak);
     }
-    
+
     return <div>
       {types.map(type => (
         <ButtonToggle 
@@ -22,7 +17,7 @@ export const ToggleGroup = () => {
           active={active===type} 
           onClick={() => {
             setActive(type);
-            handleClick(type);
+            handleClick();
           }}
         >
           {type}
