@@ -10,7 +10,6 @@ import { TimerDetailsContext } from '../../contexts/TimerDetails.context.jsx';
 function Home() {
   const { studySeconds, breakSeconds, isBreak } = useContext(TimerDetailsContext);
 
-  console.log("I am the home component");
   return (
     <div className="App">
       <header className="App-header">
