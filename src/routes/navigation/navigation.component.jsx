@@ -8,9 +8,7 @@ const Navigation = () => {
             <div className='navbar'>
                 <nav>
                     <h1>StudyBreak</h1>
-                    <NavLink>Link1</NavLink>
-                    <NavLink>Link2</NavLink>
-                    <NavLink>Link3</NavLink>
+                    <NavLink path='/about'>About</NavLink>
                 </nav>
             </div>
             <Outlet />
