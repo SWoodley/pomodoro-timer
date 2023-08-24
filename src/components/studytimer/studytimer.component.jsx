@@ -19,6 +19,7 @@ export const StudyTimer = props => {
         setIsPaused(!isPaused);
     }
 
+    //upon mount, count down by one or remain paused
     useEffect(() => {
 
         if (totalSeconds <= 0 || isPaused) {

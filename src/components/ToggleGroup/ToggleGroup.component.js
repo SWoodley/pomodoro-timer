@@ -6,9 +6,6 @@ export const ToggleGroup = () => {
     const [active, setActive] = useState(types[0]);
     const { isBreak, setIsBreak } = useContext(TimerDetailsContext);
   
-    const handleClick = () => {
-      setIsBreak(!isBreak);
-    }
 
     return <div>
       {types.map(type => (
@@ -16,8 +13,13 @@ export const ToggleGroup = () => {
           key={type}
           active={active===type} 
           onClick={() => {
-            setActive(type);
-            handleClick();
+            if(active===type){
+              return;
+            }
+            else {
+              setActive(type);
+              setIsBreak(!isBreak);
+            }
           }}
         >
           {type}
