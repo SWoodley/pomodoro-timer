@@ -6,9 +6,12 @@ const Navigation = () => {
     return (
         <Fragment>
             <div className='navbar'>
-                <nav>
-                    <h1>StudyBreak</h1>
-                    <NavLink path='/about'>About</NavLink>
+                <h2 class="visually-hidden">Navigation</h2>
+                <nav className='wrapper'>
+                    <h1 class='navbar__home'>StudyBreak</h1>
+                    <NavLink path='/about' class='navbar__link'>About</NavLink>
+                    <NavLink path='/about' class='navbar__link'>Misc1</NavLink>
+                    <NavLink path='/about' class='navbar__link'>Misc2</NavLink>
                 </nav>
             </div>
             <Outlet />

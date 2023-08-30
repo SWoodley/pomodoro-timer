@@ -1,22 +1,39 @@
+.wrapper {
+    width: 80%;
+}
+
+.visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 .navbar nav {
     display: flex;
-    gap: 16px;
-    justify-content: end;
-    max-width: 80%;
+    justify-content: flex-end;
+    align-items: center;
     margin: 0 auto;
 }
 
-.navbar nav h1 {
+.navbar__home {
+    margin: 2rem;
     margin-right: auto;
-    border-bottom: 3px solid pink;
+    border-bottom: 3px solid #D7BA89;
 }
 
-.navbar nav a {
+.navbar a {
     text-decoration: none;
-    padding: 6px;
+    padding: 1.25rem;
     border-radius: 4px;
+    transition: 250ms ease-in-out;
+    color: white;
+    border-radius: 5%;
 }
 
-.navbar nav a.active {
-    background: purple;
+.navbar a:hover {
+    background: #8B9EB7;
+    color: black;
 }
