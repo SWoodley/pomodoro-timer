@@ -14,7 +14,9 @@ const Navigation = () => {
                     <NavLink path='/about' class='navbar__link'>Misc2</NavLink>
                 </nav>
             </div>
-            <Outlet />
+            <body>
+                <Outlet />
+            </body>
         </Fragment>
     )
 }
