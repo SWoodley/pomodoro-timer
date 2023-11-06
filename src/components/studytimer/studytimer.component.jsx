@@ -43,12 +43,11 @@ export const StudyTimer = props => {
     }, [secondsProp]); //re-render on prop change
 
     return (
-        <div className='Timer'>
-            <p>I'm the timer component!</p>
-            <div className='Timer-number'>{leadingZero(getHours())}:</div>
-            <div className='Timer-number'>{leadingZero(getMinutes())}:</div>
-            <div className='Timer-number'>{leadingZero(getSeconds())}</div>
-            <Button theme="blue" onClick={handleClick}> 
+        <div className='timer'>
+            <div className='timer__numbers'>
+                {leadingZero(getHours())}:{leadingZero(getMinutes())}:{leadingZero(getSeconds())}
+            </div>
+            <Button onClick={handleClick}> 
               {(isPaused) ? 'Start' : 'Pause'}
             </Button>
         </div>

@@ -1,38 +1,27 @@
 import styled from 'styled-components';
 
-const theme = {
-    blue: {
-      default: '#3f51b5',
-      hover: '#283593'
-    },
-    pink: {
-      default: 'pink',
-      hover: 'purple'
-    }
-  }
-  
-  //${props => theme[props.theme].default}
-  //${props => theme[props.theme].hover};
   export const Button = styled.button`
-    background-color: ${props => theme[props.theme].default}; 
-    color: white;
-    padding 5px 15px;
-    border-radius: 5px;
-    outline: 0;
-    box-shadow: 0px 2px 2px lightgray;
-    text-transform: uppercase;
-    margin: 10px 0px;
-    cursor: pointer;
-    transition: ease background-color 250ms;
-    &:hover {
-      ${props => theme[props.theme].hover};
-    }
+  display: inline-block;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: rgba(0,0,0,0);
+  border: 2px solid #fff;
+  border-radius: 500px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  font-family: "Space Grotesk",sans-serif;
+  font-weight: bold;
+  line-height: 1.25;
+  padding: .625rem 1.25rem;
+  margin: .625rem 1.25rem;
+  font-size: 1.25rem;
     &:disabled {
       cursor: default;
       opacity: 0.7;
     }
+    &:hover {
+      color: black;
+      background-color: white;
+    }
   `
-  
-  Button.defaultProps = {
-    theme: 'blue'
-  }
