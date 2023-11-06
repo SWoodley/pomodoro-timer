@@ -9,8 +9,8 @@ const Navigation = () => {
                 <h2 class="visually-hidden">Navigation</h2>
                 <nav className='wrapper'>
                     <h1 class='navbar__home'>StudyBreak</h1>
-                    <NavLink path='/about' class='navbar__link'>About</NavLink>
-                    <NavLink path='/settings' class='navbar__link'>Settings</NavLink>
+                    <NavLink to='/about'  class='navbar__link'>About</NavLink>
+                    <NavLink to='/settings' class='navbar__link'>Settings</NavLink>
                 </nav>
             </div>
             <body>

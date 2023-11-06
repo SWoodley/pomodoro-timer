@@ -3,6 +3,7 @@ import { React, useState, useEffect, useContext } from 'react';
 import { Button } from '../Button/Button.styles.js';
 import { TimerDetailsContext } from '../../contexts/TimerDetails.context.jsx';
 import './studytimer.style.scss';
+import sound from "../../sounds/alert-chime-1.mp3"
 
 
 export const StudyTimer = props => {
@@ -17,10 +18,19 @@ export const StudyTimer = props => {
 
     const handleClick = () => {
         setIsPaused(!isPaused);
-    }
+    };
+
+    const playSound = (url) => {
+        const audio = new Audio(url);
+        audio.play();
+    };
 
     //upon mount, count down by one or remain paused
     useEffect(() => {
+
+        if(totalSeconds==0) {
+            playSound(sound)
+        }
 
         if (totalSeconds <= 0 || isPaused) {
             console.log('no interval made, done with timer')
