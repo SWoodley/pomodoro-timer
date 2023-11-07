@@ -7,18 +7,17 @@ import { TimerDetailsContext } from '../../contexts/TimerDetails.context.jsx';
 
 
 function Home() {
-  const { studySeconds, breakSeconds, isBreak } = useContext(TimerDetailsContext);
+  const { studySeconds, breakSeconds, isBreak, currSound } = useContext(TimerDetailsContext);
 
   return (
     <div className="App">
       <div className="timer-toggle-button">
       <ToggleGroup/>
       </div>
-      <div className="settings-button">
-        </div>
       <div className="timer">
         <StudyTimer 
           secondsProp={ isBreak ? breakSeconds : studySeconds }
+          soundUrl={ currSound }
         />
       </div>
     </div>

@@ -1,13 +1,11 @@
-import { React, useState, useEffect, useContext } from 'react';
+import { React, useState, useEffect } from 'react';
 
 import { Button } from '../Button/Button.styles.js';
-import { TimerDetailsContext } from '../../contexts/TimerDetails.context.jsx';
 import './studytimer.style.scss';
-import sound from "../../sounds/alert-chime-1.mp3"
 
 
 export const StudyTimer = props => {
-    const { secondsProp } = props;
+    const { secondsProp, soundUrl } = props;
     const [ totalSeconds, setTotalSeconds ] = useState(secondsProp || 0);
     const [ isPaused, setIsPaused ] = useState(true);
 
@@ -28,8 +26,12 @@ export const StudyTimer = props => {
     //upon mount, count down by one or remain paused
     useEffect(() => {
 
-        if(totalSeconds==0) {
-            playSound(sound)
+        if(totalSeconds===0) {
+            playSound(soundUrl);
+            setIsPaused(!isPaused);
+            setTotalSeconds(secondsProp);
+
+            return;
         }
 
         if (totalSeconds <= 0 || isPaused) {
@@ -46,7 +48,7 @@ export const StudyTimer = props => {
             console.log('clearing interval')
             clearInterval(interval);
         };
-    }, [totalSeconds, isPaused]); //dependency handles stale closure
+    }, [totalSeconds, isPaused, soundUrl, secondsProp]); //dependency handles stale closure
 
     useEffect(() => {
         setTotalSeconds(secondsProp);
