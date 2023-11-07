@@ -8,7 +8,7 @@ const Navigation = () => {
             <div className='navbar'>
                 <h2 class="visually-hidden">Navigation</h2>
                 <nav className='wrapper'>
-                    <h1 id='navbar__home'>StudyBreak</h1>
+                    <NavLink to='/' id='navbar__home'>StudyBreak</NavLink>
                     <NavLink to='/about'  class='navbar__link'>About</NavLink>
                     <NavLink to='/settings' class='navbar__link'>Settings</NavLink>
                 </nav>
