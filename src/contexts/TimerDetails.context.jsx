@@ -19,6 +19,7 @@ export const TimerDetailsProvider = ({children}) => {
     const [breakSeconds, setBreakSeconds] = useState(300);
     const [isBreak, setIsBreak] = useState(false);
     const [currSound, setCurrSound] = useState(connected);
+    const [volume, setVolume] = useState(100);
 
     const value = { 
         studySeconds, 
@@ -28,7 +29,9 @@ export const TimerDetailsProvider = ({children}) => {
         isBreak, 
         setIsBreak,
         currSound,
-        setCurrSound
+        setCurrSound,
+        volume,
+        setVolume
     };
 
     return <TimerDetailsContext.Provider value={value}>{children}</TimerDetailsContext.Provider>;

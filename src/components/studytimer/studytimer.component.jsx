@@ -5,7 +5,7 @@ import './studytimer.style.scss';
 
 
 export const StudyTimer = props => {
-    const { secondsProp, soundUrl } = props;
+    const { secondsProp, soundUrl, audioVolume } = props;
     const [ totalSeconds, setTotalSeconds ] = useState(secondsProp || 0);
     const [ isPaused, setIsPaused ] = useState(true);
 
@@ -18,8 +18,9 @@ export const StudyTimer = props => {
         setIsPaused(!isPaused);
     };
 
-    const playSound = (url) => {
+    const playSound = (url, audioVolume) => {
         const audio = new Audio(url);
+        audio.volume = audioVolume;
         audio.play();
     };
 
@@ -27,7 +28,7 @@ export const StudyTimer = props => {
     useEffect(() => {
 
         if(totalSeconds===0) {
-            playSound(soundUrl);
+            playSound(soundUrl, audioVolume);
             setIsPaused(!isPaused);
             setTotalSeconds(secondsProp);
 
@@ -48,7 +49,7 @@ export const StudyTimer = props => {
             console.log('clearing interval')
             clearInterval(interval);
         };
-    }, [totalSeconds, isPaused, soundUrl, secondsProp]); //dependency handles stale closure
+    }, [totalSeconds, isPaused, soundUrl, secondsProp, audioVolume]); //dependency handles stale closure
 
     useEffect(() => {
         setTotalSeconds(secondsProp);

@@ -7,7 +7,7 @@ import { TimerDetailsContext } from '../../contexts/TimerDetails.context.jsx';
 
 
 function Home() {
-  const { studySeconds, breakSeconds, isBreak, currSound } = useContext(TimerDetailsContext);
+  const { studySeconds, breakSeconds, isBreak, currSound, volume } = useContext(TimerDetailsContext);
 
   return (
     <div className="App">
@@ -18,6 +18,7 @@ function Home() {
         <StudyTimer 
           secondsProp={ isBreak ? breakSeconds : studySeconds }
           soundUrl={ currSound }
+          audioVolume={ volume }
         />
       </div>
     </div>

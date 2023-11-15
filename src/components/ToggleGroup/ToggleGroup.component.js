@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { types, ButtonToggle } from './ToggleGroup.styles.js';
 import { TimerDetailsContext } from '../../contexts/TimerDetails.context.jsx';
 
 export const ToggleGroup = () => {
-    const [active, setActive] = useState(types[0]);
     const { isBreak, setIsBreak } = useContext(TimerDetailsContext);
   
 
@@ -11,13 +10,12 @@ export const ToggleGroup = () => {
       {types.map(type => (
         <ButtonToggle 
           key={type}
-          active={active===type} 
+          active={isBreak ? type==='Break' : type==='Study'}
           onClick={() => {
-            if(active===type){
+            if(isBreak ? type==='Break' : type==='Study'){
               return;
             }
             else {
-              setActive(type);
               setIsBreak(!isBreak);
             }
           }}
