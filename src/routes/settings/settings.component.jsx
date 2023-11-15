@@ -1,8 +1,10 @@
 import { useContext } from 'react';
 import { TimerDetailsContext } from '../../contexts/TimerDetails.context.jsx';
+import { NavLink } from 'react-router-dom';
 import chime from "../../sounds/alert-chime-1.mp3";
 import connected from "../../sounds/connected-01.wav";
 import threeNoteDoorbell from "../../sounds/three-note-doorbell.mp3";
+import "./settings.styles.scss";
 
 export default function Settings() {
     const { studySeconds, setStudySeconds, breakSeconds, setBreakSeconds, currSound, setCurrSound, volume, setVolume } = useContext(TimerDetailsContext);
@@ -65,8 +67,11 @@ export default function Settings() {
                 }}/>
             </div>
             
-            <p>Reset All</p>
-            <p>Return to Home</p>
+            {/* <p>Reset All</p> */}
+            <div className="settings-menu__link">
+                <NavLink to='/'>Return to home</NavLink> 
+            </div>
+
         </div>
     )
 }
