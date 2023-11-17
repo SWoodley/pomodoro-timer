@@ -7,7 +7,7 @@ import {
 
 import Home from './routes/home/home.component.jsx';
 import Navigation from './routes/navigation/navigation.component.jsx';
-import About from './routes/about/about.component.jsx';
+import About from './routes/about/About.component.jsx';
 import Settings from './routes/settings/settings.component.jsx';
 import Error from './routes/error/error.component.jsx';
 
